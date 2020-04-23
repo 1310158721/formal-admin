@@ -158,6 +158,32 @@
           "children": null
         }
       ]
+    },
+    {
+      "title": "权限",
+      "permission": "PERMISSION",
+      "order": 7,
+      "children": [
+        {
+          "title": "用户列表",
+          "permission": "USERSLIST",
+          "children": null,
+          "buttons": [
+            {
+              "title": "编辑",
+              "permission": "USERSLISTEDIT"
+            },
+            {
+              "title": "删除",
+              "permission": "USERSLISTDELETE"
+            },
+            {
+              "title": "新增",
+              "permission": "USERSLISTADD"
+            }
+          ]
+        }
+      ]
     }
   ],
   "code": 0,

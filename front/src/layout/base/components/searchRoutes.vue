@@ -55,9 +55,9 @@ export default {
     handleSearchRoutes () {
       this.width = 203
       this.opacity = 1
-      this.$nextTick(() => {
+      setTimeout(() => {
         this.$refs.routesSelect.$children[0].focus()
-      })
+      }, 200)
     },
     selectBlur () {
       this.width = 0

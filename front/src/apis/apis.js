@@ -15,3 +15,9 @@ export const getMenuList = async (params) => {
   const url = isMock ? `../mock/menu.json?t=${Date.now()}` : '/checkUserPermissionMenuList'
   return await axios.get(url, { params })
 }
+
+// 权限 -> 用户列表
+export const getPermisionUsersList = async (params) => {
+  const url = isMock ? `../mock/users.json?t=${Date.now()}` : `../mock/users.json?t=${Date.now()}`
+  return await axios.get(url, { params })
+}

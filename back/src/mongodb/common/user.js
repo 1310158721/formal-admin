@@ -55,7 +55,7 @@ class USER {
    */
   checkAllUsersInfo() {
     this.app.get('/api/checkAllUsersInfo', (req, res, next) => {
-      find(this.userModel, {}, res)
+      find(this.userModel, {}, { _id: 0 }, res)
         .then((doc) => {
           myRes(res, doc, 0, '查询成功')
         })

@@ -214,6 +214,31 @@ const baseRoutes = [
           title: '二级路由-2'
         },
         component: () => import(/* webpackChunkName: "route-2-2" */ '@/views/route/route-2-2')
+      },
+      // 权限
+      {
+        title: '权限',
+        icon: 'icon--luyouguanli',
+        path: '/permission',
+        name: 'permission',
+        meta: {
+          title: '嵌套路由'
+        },
+        component: () => import(/* webpackChunkName: "permission" */ '@/layout/base/components/main'),
+        redirect: {
+          path: '/permission-list'
+        }
+      },
+      // 权限 -> 用户列表
+      {
+        title: '用户列表',
+        icon: 'icon--luyouguanli',
+        path: '/permission-list',
+        name: 'permission-list',
+        meta: {
+          title: '用户列表'
+        },
+        component: () => import(/* webpackChunkName: "permission-list" */ '@/views/permission/permission-list/permission-list')
       }
     ]
   }

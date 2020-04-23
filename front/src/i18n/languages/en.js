@@ -19,6 +19,8 @@ const en = {
     '二级路由-1': 'Route-2-1',
     '二级路由-2': 'Route-2-2',
     '一级路由-2': 'Route-1-2',
+    权限: 'Permission',
+    用户列表: 'PermissionList',
     测试: 'Test'
   },
   // 指令多语言设置
