@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div v-t-full-screen='i.options' class="test-demo" v-for='i in domEnum' :key='i.id' :id='i.id'>
-      {{ i.content1 }}
-    </div>
+    <div
+      v-t-full-screen="i.options"
+      class="test-demo"
+      v-for="i in domEnum"
+      :key="i.id"
+      :id="i.id"
+    >{{ i.content1 }}</div>
   </div>
 </template>
 
@@ -19,7 +23,7 @@ export default {
           content1: '点我全屏化-1',
           content2: '还未全屏化-1',
           options: {
-            fnCallback: () => {},
+            fnCallback: () => { },
             dom: 't-full-screen-demo-1'
           }
         },
@@ -39,8 +43,8 @@ export default {
   },
   computed: {},
   methods: {},
-  created () {},
-  mounted () {},
+  created () { },
+  mounted () { },
   watch: {}
 }
 </script>

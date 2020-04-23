@@ -126,7 +126,21 @@ const baseRoutes = [
         },
         component: () => import(/* webpackChunkName: "qrcode" */ '@/views/components/qrcode/qrcode')
       },
-      // 组件 -> 全屏化
+      // 指令
+      {
+        title: '指令',
+        icon: 'icon-zhilingzichengjiao',
+        path: '/directives',
+        name: 'directives',
+        meta: {
+          title: '指令'
+        },
+        component: () => import(/* webpackChunkName: "directives" */ '@/layout/base/components/main'),
+        redirect: {
+          path: '/full-screenb'
+        }
+      },
+      // 指令 -> 全屏化
       {
         title: '全屏化',
         icon: 'icon-quanping',
@@ -135,7 +149,17 @@ const baseRoutes = [
         meta: {
           title: '全屏化'
         },
-        component: () => import(/* webpackChunkName: "fullScreen" */ '@/views/components/fullScreen/fullScreen')
+        component: () => import(/* webpackChunkName: "fullScreen" */ '@/views/directives/fullScreen/fullScreen')
+      },
+      {
+        title: '复制粘贴',
+        icon: 'icon-fuzhi',
+        path: '/clipboard',
+        name: 'clipboard',
+        meta: {
+          title: '复制粘贴'
+        },
+        component: () => import(/* webpackChunkName: "clipboard" */ '@/views/directives/clipboard/clipboard')
       },
       // 路由
       {

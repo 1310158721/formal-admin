@@ -96,7 +96,14 @@
               "permission": "QRCODE-BUTTON3"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "title": "指令",
+      "permission": "DIRECTIVES",
+      "order": 5,
+      "children": [
         {
           "title": "全屏化",
           "permission": "FULLSCREEN",
@@ -115,13 +122,19 @@
               "permission": "FULLSCREEN-BUTTON3"
             }
           ]
+        },
+        {
+          "title": "复制粘贴",
+          "permission": "CLIPBOARD",
+          "children": null,
+          "buttons": null
         }
       ]
     },
     {
       "title": "嵌套路由",
       "permission": "NESTEDROUTES",
-      "order": 5,
+      "order": 6,
       "children": [
         {
           "title": "一级路由-1",

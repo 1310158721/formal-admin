@@ -5,10 +5,14 @@
       :class="[isCollapse ? 'el-icon-right' : 'el-icon-back']"
       @click="handleCollapseIcon"
     />
-    <TBreadcrumb v-if='breadcrumbEnum.length && $store.state.isShowBaseLayoutBreadcrumb' :breadcrumbEnum='breadcrumbEnum' />
+    <TBreadcrumb
+      v-if="breadcrumbEnum.length && $store.state.isShowBaseLayoutBreadcrumb"
+      :breadcrumbEnum="breadcrumbEnum"
+    />
     <span class="space" />
-    <TMultilingual v-if='$store.state.isOpenMultilingual' />
-    <TFullScreen v-if='$store.state.isOpenFullScreen' />
+    <TSearchRoutes v-if="$store.state.isOpenRoutesSearch" />
+    <TMultilingual v-if="$store.state.isOpenMultilingual" />
+    <TFullScreen v-if="$store.state.isOpenFullScreen" />
     <headerHandle />
   </div>
 </template>
@@ -18,6 +22,7 @@ import headerHandle from './headerHandle'
 import TBreadcrumb from './breadcrumb'
 import TFullScreen from './fullScreen'
 import TMultilingual from './multilingual'
+import TSearchRoutes from './searchRoutes'
 import EventBus from '@/assets/js/utils/event'
 export default {
   name: 't-header',
@@ -25,7 +30,8 @@ export default {
     headerHandle,
     TBreadcrumb,
     TFullScreen,
-    TMultilingual
+    TMultilingual,
+    TSearchRoutes
   },
   props: {},
   data () {
@@ -61,7 +67,7 @@ export default {
   created () {
     this.getRouteMatched()
   },
-  mounted () {},
+  mounted () { },
   watch: {
     '$route.path' () {
       this.getRouteMatched()
@@ -71,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/scss/mixin.scss";
+@import '@/assets/styles/scss/mixin.scss';
 .base-layout-header {
   height: 100%;
   display: flex;

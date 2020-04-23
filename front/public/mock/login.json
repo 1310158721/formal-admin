@@ -1,5 +1,7 @@
 {
-  "result": null,
+  "result": {
+    "userInfo": "xxx"
+  },
   "code": 0,
   "message": "请求成功"
 }

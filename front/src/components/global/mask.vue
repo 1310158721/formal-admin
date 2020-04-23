@@ -5,7 +5,7 @@
   <div
     class="t-mask-wrapper"
     v-loading="$store.state.globalMask"
-    :element-loading-text='loadingText'
+    :element-loading-text="loadingText"
     element-loading-spinner="el-icon-loading"
     element-loading-background="rgba(0, 0, 0, 0.5)"
   />
@@ -26,8 +26,8 @@ export default {
   },
   computed: {},
   methods: {},
-  created () {},
-  mounted () {},
+  created () { },
+  mounted () { },
   watch: {}
 }
 </script>

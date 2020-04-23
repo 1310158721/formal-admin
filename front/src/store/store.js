@@ -21,6 +21,8 @@ const store = new Vuex.Store({
     isOpenFullScreen: true,
     // 是否开启多语言功能
     isOpenMultilingual: true,
+    // 是否开启菜单搜索功能
+    isOpenRoutesSearch: true,
     // 是否显示全局组件 baseLayoutDrawer
     isShowGlobalBaseLayout: false,
     // 全局 mask
@@ -54,6 +56,9 @@ const store = new Vuex.Store({
     },
     SETOPENMULTILINGUAL (state, boolean) {
       state.isOpenMultilingual = boolean
+    },
+    SETOPENROUTESSEARCH (state, boolean) {
+      state.isOpenRoutesSearch = boolean
     },
     SETGLOBALMASK (state, boolean) {
       state.globalMask = boolean

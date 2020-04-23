@@ -5,13 +5,13 @@
 <template>
   <mavon-editor
     class="mavon-editor-wrapper"
-    :toolbars='toolbars'
-    :imageFilter='imageFilter'
+    :toolbars="toolbars"
+    :imageFilter="imageFilter"
     codeStyle="atom-one-dark"
     ref="mavonEditor"
     @imgAdd="imgAdd"
-    v-on='$listeners'
-    v-bind='$attrs'
+    v-on="$listeners"
+    v-bind="$attrs"
     v-model="editorContent"
   />
 </template>

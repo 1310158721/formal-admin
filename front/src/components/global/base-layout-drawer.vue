@@ -7,19 +7,9 @@
     title="baseLayout 布局设置"
     :before-close="beforeClose"
   >
-    <el-form
-      :inline="true"
-      size="small"
-      label-width="120px"
-      label-position="left"
-    >
-      <el-form-item v-for='i in formItemEnum' :key='i.id' :label="i.label">
-        <el-switch
-          v-model="i.model"
-          active-text="是"
-          inactive-text="否"
-          @change="i.change"
-        />
+    <el-form :inline="true" size="small" label-width="120px" label-position="left">
+      <el-form-item v-for="i in formItemEnum" :key="i.id" :label="i.label">
+        <el-switch v-model="i.model" active-text="是" inactive-text="否" @change="i.change" />
       </el-form-item>
     </el-form>
   </TDrawer>
@@ -41,7 +31,8 @@ export default {
       isShowBaseLayoutBreadcrumb: null,
       isOpenBaseLayoutTabRoutes: null,
       isOpenFullScreen: null,
-      isOpenMultilingual: null
+      isOpenMultilingual: null,
+      isOpenRoutesSearch: null
     }
   },
   computed: {
@@ -94,6 +85,14 @@ export default {
             this.isOpenMultilingual = val
             this.SETOPENMULTILINGUAL(val)
           }
+        },
+        {
+          label: '开启路由搜索',
+          model: this.isOpenRoutesSearch,
+          change: val => {
+            this.isOpenRoutesSearch = val
+            this.SETOPENROUTESSEARCH(val)
+          }
         }
       ]
     }
@@ -106,7 +105,8 @@ export default {
       'SETSHOWBASELAYOUTBREADCRUMB',
       'SETOPENBASELAYOUTTABROUTES',
       'SETOPENFULLSCREEN',
-      'SETOPENMULTILINGUAL'
+      'SETOPENMULTILINGUAL',
+      'SETOPENROUTESSEARCH'
     ]),
     beforeClose () {
       this.SETGLOBALBASELAYOUT(false)
@@ -119,6 +119,7 @@ export default {
     this.isOpenBaseLayoutTabRoutes = this.$store.state.isOpenBaseLayoutTabRoutes
     this.isOpenFullScreen = this.$store.state.isOpenFullScreen
     this.isOpenMultilingual = this.$store.state.isOpenMultilingual
+    this.isOpenRoutesSearch = this.$store.state.isOpenRoutesSearch
   }
 }
 </script>
