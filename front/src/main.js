@@ -22,6 +22,10 @@ import 'mavon-editor/dist/css/index.css'
 // 指令
 import '@/assets/js/directives/directives'
 
+// 全局组件
+import '@/components/global/global'
+import '@/components/element/element'
+
 Vue.use(ElementUI)
 Vue.use(mavonEditor)
 

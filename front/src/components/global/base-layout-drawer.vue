@@ -2,7 +2,7 @@
   base-layout 布局的全局样式配置抽屉
 -->
 <template>
-  <TDrawer
+  <t-drawer
     :visible="$store.state.isShowGlobalBaseLayout"
     title="baseLayout 布局设置"
     :before-close="beforeClose"
@@ -12,17 +12,14 @@
         <el-switch v-model="i.model" active-text="是" inactive-text="否" @change="i.change" />
       </el-form-item>
     </el-form>
-  </TDrawer>
+  </t-drawer>
 </template>
 
 <script>
-import TDrawer from '@/components/element/t-drawer'
 import { mapMutations } from 'vuex'
 export default {
-  name: 'baseLayoutDrawer',
-  components: {
-    TDrawer
-  },
+  name: 't-globla-base-layout-drawer',
+  components: {},
   props: {},
   data () {
     return {

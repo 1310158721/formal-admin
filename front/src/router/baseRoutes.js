@@ -28,7 +28,7 @@ const baseRoutes = [
         meta: {
           title: '图表'
         },
-        component: () => import(/* webpackChunkName: "charts" */ '@/layout/base/components/main'),
+        component: () => import(/* webpackChunkName: "charts" */ '@/views/charts/charts'),
         redirect: {
           path: '/pie'
         }
@@ -67,7 +67,7 @@ const baseRoutes = [
         meta: {
           title: '编辑器'
         },
-        component: () => import(/* webpackChunkName: "editor" */ '@/layout/base/components/main')
+        component: () => import(/* webpackChunkName: "editor" */ '@/views/editor/editor')
       },
       {
         title: 'Markdown',
@@ -88,7 +88,7 @@ const baseRoutes = [
         meta: {
           title: '组件'
         },
-        component: () => import(/* webpackChunkName: "components" */ '@/layout/base/components/main'),
+        component: () => import(/* webpackChunkName: "components" */ '@/views/components/components'),
         redirect: {
           path: '/viewer'
         }
@@ -135,7 +135,7 @@ const baseRoutes = [
         meta: {
           title: '指令'
         },
-        component: () => import(/* webpackChunkName: "directives" */ '@/layout/base/components/main'),
+        component: () => import(/* webpackChunkName: "directives" */ '@/views/directives/directives'),
         redirect: {
           path: '/full-screenb'
         }
@@ -170,7 +170,7 @@ const baseRoutes = [
         meta: {
           title: '嵌套路由'
         },
-        component: () => import(/* webpackChunkName: "route" */ '@/layout/base/components/main'),
+        component: () => import(/* webpackChunkName: "route" */ '@/views/route/route'),
         redirect: {
           path: '/route-2-1'
         }
@@ -224,7 +224,7 @@ const baseRoutes = [
         meta: {
           title: '嵌套路由'
         },
-        component: () => import(/* webpackChunkName: "permission" */ '@/layout/base/components/main'),
+        component: () => import(/* webpackChunkName: "permission" */ '@/views/permission/permission'),
         redirect: {
           path: '/permission-list'
         }
@@ -233,12 +233,12 @@ const baseRoutes = [
       {
         title: '用户列表',
         icon: 'icon--luyouguanli',
-        path: '/permission-list',
-        name: 'permission-list',
+        path: '/users-list',
+        name: 'users-list',
         meta: {
           title: '用户列表'
         },
-        component: () => import(/* webpackChunkName: "permission-list" */ '@/views/permission/permission-list/permission-list')
+        component: () => import(/* webpackChunkName: "permission-list" */ '@/views/permission/users-list/users-list')
       }
     ]
   }

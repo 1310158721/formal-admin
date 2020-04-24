@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 't-drowdown',
+  name: 't-dropdown',
   props: {
     dropdownItemEnum: {
       type: Array,

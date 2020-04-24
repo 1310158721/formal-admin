@@ -1,20 +1,17 @@
 <template>
   <div class="multilingual-wrapper">
-    <TDrowdown trigger='click' v-if='dropdownItemEnum.length' :dropdownItemEnum='dropdownItemEnum'>
+    <t-dropdown trigger='click' v-if='dropdownItemEnum.length' :dropdownItemEnum='dropdownItemEnum'>
       <template #link>
         <i class="link iconfont icon-duoyuyan" />
       </template>
-    </TDrowdown>
+    </t-dropdown>
   </div>
 </template>
 
 <script>
-import TDrowdown from '@/components/element/t-dropdown'
 export default {
   name: 't-multilingual',
-  components: {
-    TDrowdown
-  },
+  components: {},
   computed: {
     dropdownItemEnum () {
       return [

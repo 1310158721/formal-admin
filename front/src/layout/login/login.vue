@@ -1,7 +1,6 @@
 <template>
 <div class="login-wrapper">
-
-  <TForm :model='model' :rules='rules' ref='loginForm' class="login-form-wrapper">
+  <t-form :model='model' :rules='rules' ref='loginForm' class="login-form-wrapper">
     <el-form-item prop="account">
       <el-input v-model='model.account' placeholder="请输入账号" />
     </el-form-item>
@@ -25,21 +24,18 @@
         登录
       </el-button>
     </el-form-item>
-  </TForm>
+  </t-form>
 </div>
 
 </template>
 
 <script>
-import TForm from '@/components/element/t-form'
 import REGEXP from '@/assets/js/contants/regexp'
 import { login } from '@/apis/apis'
 import { mapMutations } from 'vuex'
 export default {
   name: 'login',
-  components: {
-    TForm
-  },
+  components: {},
   props: {},
   data () {
     return {

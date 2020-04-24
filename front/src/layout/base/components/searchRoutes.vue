@@ -1,7 +1,7 @@
 <template>
   <div class="select-routes-wrapper">
     <i class="search iconfont icon-ziyuan1" @click="handleSearchRoutes" />
-    <TSelect
+    <t-select
       ref="routesSelect"
       filterable
       :style="{ width: width + 'px', opacity, transition: 'all 0.2s linear' }"
@@ -15,12 +15,9 @@
 </template>
 
 <script>
-import TSelect from '@/components/element/t-select'
 export default {
   name: 't-search-routes',
-  components: {
-    TSelect
-  },
+  components: {},
   props: {},
   data () {
     return {

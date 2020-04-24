@@ -11,12 +11,9 @@
 </template>
 
 <script>
-import TGlobalMask from '@/components/global/mask'
 export default {
   name: 'App',
-  components: {
-    TGlobalMask
-  },
+  components: {},
   props: {},
   data () {
     return {}

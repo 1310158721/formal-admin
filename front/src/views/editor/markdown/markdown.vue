@@ -1,16 +1,13 @@
 <template>
   <div class="markdown-wrapper">
-    <TMavonEditor :size="2000" />
+    <t-mavon-editor :size="2000" />
   </div>
 </template>
 
 <script>
-import TMavonEditor from '@/components/global/mavon-editor'
 export default {
   name: 't-markdown',
-  components: {
-    TMavonEditor
-  },
+  components: {},
   props: {},
   data () {
     return {}

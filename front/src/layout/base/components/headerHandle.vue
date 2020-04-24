@@ -1,20 +1,17 @@
 <template>
-  <TDrowdown class="header-handle-dropdown" trigger='click' v-if='dropdownItemEnum.length' :dropdownItemEnum='dropdownItemEnum'>
+  <t-dropdown class="header-handle-dropdown" trigger='click' v-if='dropdownItemEnum.length' :dropdownItemEnum='dropdownItemEnum'>
       <template #link>
         <span class="el-dropdown-link" />
       </template>
-    </TDrowdown>
+    </t-dropdown>
 </template>
 
 <script>
 import jsCookie from 'js-cookie'
 import { mapMutations } from 'vuex'
-import TDrowdown from '@/components/element/t-dropdown'
 export default {
   name: 'headerHandle',
-  components: {
-    TDrowdown
-  },
+  components: {},
   props: {},
   data () {
     return {}

@@ -1,18 +1,26 @@
 <template>
-  <div>test</div>
+  <div>
+    
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'componentName',
+  name: 'test',
   components: {},
   props: {},
   data () {
-    return {}
+    return {
+      visible: true
+    }
   },
   computed: {},
-  methods: {},
-  created () { },
+  methods: {
+    dialogClose () {
+      this.visible = !this.visible
+    }
+  },
+  created () {},
   mounted () { },
   watch: {}
 }

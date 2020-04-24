@@ -19,7 +19,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, // 非正式环境允许使用 debugger 命令
     'no-console': process.env.NODE_ENV === 'production' ? 2 : 0, // 非正式环境允许使用 console.log 命令
     'space-before-function-paren': ['error', 'always'], // 函数名与括号之间空一格
-    // 'linebreak-style': ['error', 'unix'], // 换行风格
+    'linebreak-style': ['error', 'unix'], // 换行风格
     'no-multiple-empty-lines': ['error', { max: 1 }] // 最多连续空行行数
   }
 };

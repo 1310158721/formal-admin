@@ -4,7 +4,7 @@
 -->
 <template>
   <el-drawer
-    class="t-drawer"
+    class="t-drawer-wrapper"
     :visible.sync="visible"
     :append-to-body='appendToBody'
     :close-on-press-escape='closeOnPressEscape'
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'elementDrawer',
+  name: 't-drawer',
   components: {},
   // 设置默认值
   props: {
@@ -51,7 +51,7 @@ export default {
 @import '@/assets/styles/scss/index.scss';
 @import '@/assets/styles/scss/mixin.scss';
 // 设置默认样式
-.t-drawer {
+.t-drawer-wrapper {
   /deep/.el-drawer {
     .el-drawer__header {
       padding: 18px 24px;

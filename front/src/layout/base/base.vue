@@ -17,7 +17,7 @@
         <t-main class="t-main" />
       </div>
     </el-container>
-    <baseLayoutDrawer
+    <t-globla-base-layout-drawer
       :visible='$store.state.isShowGlobalBaseLayout'
     />
   </el-container>
@@ -28,7 +28,6 @@ import THeader from './components/header'
 import TSider from './components/sider'
 import TMain from './components/main'
 import TabRoutes from './components/tabRoutes'
-import baseLayoutDrawer from '@/components/global/base-layout-drawer'
 import { mapMutations } from 'vuex'
 export default {
   name: 'baseLayout',
@@ -36,8 +35,7 @@ export default {
     TSider,
     THeader,
     TMain,
-    TabRoutes,
-    baseLayoutDrawer
+    TabRoutes
   },
   props: {},
   data () {
