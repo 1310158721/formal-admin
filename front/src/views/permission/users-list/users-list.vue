@@ -1,32 +1,36 @@
 <template>
-  <div class="permission-list-wrapper">
-    <div class="table-wrapper">
-      <t-table
-        :data="list"
-        :pagination="pagination"
-        :sizeChange="handleSizeChange"
-        :currentChange="handleCurrentChange"
-      >
-        <template #filter>
-          <el-button type="primary" size='small'>新增</el-button>
-            <br />
-          <el-button type="primary" size='small'>新增</el-button>
+  <t-table
+    class="permission-list-wrapper"
+    :data="list"
+    :pagination="pagination"
+    :sizeChange="handleSizeChange"
+    :currentChange="handleCurrentChange"
+    :isLoading='isLoading'
+    :openFilter='true'
+  >
+    <template #filter>
+      <el-button type="primary" size="small" @click='addPermissionUser'>新增</el-button>
+    </template>
+    <template #table>
+      <el-table-column
+        align="center"
+        prop="name"
+        label="用户名"
+        width="120px"
+      />
+      <el-table-column align="center" prop="account" label="账号" />
+      <el-table-column align="center" prop="mobile" label="号码" />
+      <el-table-column align="center" prop="desc" label="简述" />
+      <el-table-column align="center" prop="roleDesc" label="级别" />
+      <el-table-column align="center" label="操作" width="120px">
+        <!-- <template slot-scope="scope"> -->
+        <template>
+          <el-button size="small" type="text">编辑</el-button>
+          <el-button size="small" type="text">删除</el-button>
         </template>
-        <template #table>
-          <el-table-column align="center" prop="name" label="用户名" width="120px" />
-            <el-table-column align="center" prop="account" label="账号" />
-            <el-table-column align="center" prop="roleDesc" label="级别" />
-            <el-table-column align="center" label="操作" width="120px">
-              <!-- <template slot-scope="scope"> -->
-              <template>
-                <el-button size="small" type="text">编辑</el-button>
-                <el-button size="small" type="text">删除</el-button>
-              </template>
-            </el-table-column>
-        </template>
-      </t-table>
-    </div>
-  </div>
+      </el-table-column>
+    </template>
+  </t-table>
 </template>
 
 <script>
@@ -37,6 +41,7 @@ export default {
   props: {},
   data () {
     return {
+      isLoading: false,
       params: {
         page: 1,
         size: 20,
@@ -48,16 +53,20 @@ export default {
   computed: {},
   methods: {
     getList () {
+      this.isLoading = true
       getPermisionUsersList(this.params).then((res) => {
-        const { result, code, total } = res.data
-        if (code === 0) {
-          this.list = result
-          this.pagination = {
-            total,
-            page: this.params.page,
-            size: this.params.size,
+        setTimeout(() => {
+          const { result, code, total } = res.data
+          if (code === 0) {
+            this.isLoading = false
+            this.list = result
+            this.pagination = {
+              total,
+              page: this.params.page,
+              size: this.params.size,
+            }
           }
-        }
+        }, 500)
       })
     },
     handleSizeChange (val) {
@@ -80,12 +89,17 @@ export default {
     handleCurrentChange (val) {
       this.params.page = val
       this.getList()
+    },
+    addPermissionUser () {
+      this.$router.push({
+        path: '/permission-operation'
+      })
     }
   },
   created () {
     this.getList()
   },
-  mounted () {}
+  mounted () {},
 }
 </script>
 
@@ -93,17 +107,6 @@ export default {
 .permission-list-wrapper {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  .filter-wrapper {
-    line-height: 32px;
-    margin-bottom: 20px;
-  }
-  .table-wrapper {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-  }
+  max-height: 100%;
 }
 </style>

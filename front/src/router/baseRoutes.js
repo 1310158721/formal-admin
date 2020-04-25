@@ -126,6 +126,17 @@ const baseRoutes = [
         },
         component: () => import(/* webpackChunkName: "qrcode" */ '@/views/components/qrcode/qrcode')
       },
+      // 组件 -> 树形控件
+      {
+        title: '树形控件',
+        icon: 'icon-ico',
+        path: '/tree',
+        name: 'tree',
+        meta: {
+          title: '树形控件'
+        },
+        component: () => import(/* webpackChunkName: "tree" */ '@/views/components/tree/tree')
+      },
       // 指令
       {
         title: '指令',

@@ -3,8 +3,9 @@ import Vue from 'vue'
 import fixedRoutes from './fixedRoutes'
 import baseRoutes from './baseRoutes'
 import devRoutes from './devRoutes'
+import pageHeaderRoutes from './pageHeader'
 import store from '@/store/store'
-import { getMenuList } from '@/apis/apis'
+import { getMenuList, checkUserPermission } from '@/apis/apis'
 import jsCookie from 'js-cookie'
 
 // 页面加载进度条
@@ -18,7 +19,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'hash',
-  routes: fixedRoutes
+  routes: [...fixedRoutes, ...pageHeaderRoutes]
 })
 
 const baseRoutesFirst = baseRoutes[0]
@@ -73,6 +74,13 @@ router.beforeEach((to, from, next) => {
     // 清除权限菜单数据
     store.commit('SETMENULIST', [])
   } else if (!store.state.menuList.length) {
+    // 这两个接口应合并为一个同步请求
+    checkUserPermission().then((res) => {
+      const { result, code } = res.data
+      if (code === 0) {
+        store.commit('SETUSERINFO', result)
+      }
+    })
     getMenuList()
       .then((res) => {
         const { result, code } = res.data
@@ -90,11 +98,14 @@ router.beforeEach((to, from, next) => {
   } else {
     // tabRoutes 中没有匹配到当前路由时，便添加当前路由
     if (!tabRoutes.filter((i) => to.path === i.path).length) {
-      tabRoutes.push({
-        path: to.path,
-        title: to.meta ? to.meta.title || '暂无meta' : '暂无meta'
-      })
-      window.sessionStorage.setItem('tabRoutes', JSON.stringify(tabRoutes))
+      // 是否为菜单栏上面的路由
+      if (to.meta && !to.meta.isNotTabRoute) {
+        tabRoutes.push({
+          path: to.path,
+          title: to.meta ? to.meta.title || '暂无meta' : '暂无meta'
+        })
+        window.sessionStorage.setItem('tabRoutes', JSON.stringify(tabRoutes))
+      }
     }
     next()
   }

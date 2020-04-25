@@ -1,8 +1,7 @@
-const config = require('./src/config/config')
 const express = require('express');
 const app = express();
 global.app = app;
-const mongoose = require('mongoose');
+global.buckName = 'tang-tools'
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -45,31 +44,10 @@ app.all('*', (req, res, next) => {
   next();
 });
 
-// 连接数据库 adminAllUser
-mongoose.connect(`mongodb://127.0.0.1:27017/formalAdminCommon`, { useNewUrlParser: true });
-
-// 保存 mongodb 连接状态
-const db = mongoose.connection;
-// 监听连接数据库成功状态
-db.on('connected', () => {
-  console.log('MongoDB 连接成功!!!');
-});
-
-// 监听连接数据库失败状态
-db.on('error', () => {
-  console.log('MongoDB 连接失败!!!');
-});
-
-// 监听连接数据库断开状态
-db.on('disconnected', () => {
-  console.log('MongoDB 断开连接!!!');
-});
-
-// require('./src/utils/upload/upload')
-// 导入接口
-require('./src/mongodb/mongodb')
+require('./upload')
 
 // 应用监听端口
-app.listen(config.PORT, () => {
-  console.log(`server is running at http://127.0.0.1:${config.PORT}/`);
+const PORT = 20000
+app.listen(PORT, () => {
+  console.log(`server is running at http://127.0.0.1:${PORT}/`);
 });

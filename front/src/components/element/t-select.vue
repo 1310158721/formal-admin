@@ -1,5 +1,5 @@
 <template>
-  <el-select size="small" v-model="value" v-bind="$attrs" v-on="$listeners" placeholder="请选择">
+  <el-select size="small" v-bind="$attrs" v-on="$listeners" :placeholder="placeholder">
     <el-option
       v-for="item in $attrs.optionEnum"
       :key="item.value"
@@ -13,17 +13,18 @@
 export default {
   name: 't-select',
   components: {},
-  props: {},
-  data () {
-    return {
-      value: ''
+  props: {
+    placeholder: {
+      type: String,
+      default: '请选择'
     }
+  },
+  data () {
+    return {}
   },
   computed: {},
   methods: {},
-  created () {
-    this.value = this.$attrs.value || null
-  },
+  created () {},
   mounted () { },
   watch: {}
 }

@@ -11,6 +11,7 @@ const en = {
     图片查看器: 'Viewer',
     列表拖拽: 'ListDragger',
     二维码: 'QRCode',
+    树形控件: 'tree',
     指令: 'Diretives',
     全屏化: 'FullScreen',
     复制粘贴: 'Clipboard',

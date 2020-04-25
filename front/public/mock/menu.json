@@ -96,6 +96,11 @@
               "permission": "QRCODE-BUTTON3"
             }
           ]
+        },
+        {
+          "title": "树形控件",
+          "permission": "TREE",
+          "children": null
         }
       ]
     },
