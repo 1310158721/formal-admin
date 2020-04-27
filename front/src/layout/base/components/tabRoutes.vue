@@ -1,12 +1,29 @@
 <template>
-  <el-tabs class="tab-routes-wrapper" v-model="activeName" type="card" v-if='tabRoutesEnum && tabRoutesEnum.length'>
-    <el-tab-pane v-for='(i, index) in tabRoutesEnum' :key='i.path' :name="i.path">
-      <el-button @click='selectTabRoutes(i.path)' :class="[ $route.path === i.path ? 'active-tab' : 'unactive-tab' ]" slot="label" size="mini" type="primary"
-        >
-          {{ $t('menuList.' + i.title) }}
-          <i class="el-icon-circle-close" v-if='index > 0' @click.stop='closeTabRoutes(i, index)' />
-        </el-button
+  <el-tabs
+    class="tab-routes-wrapper"
+    v-model="activeName"
+    type="card"
+    v-if="tabRoutesEnum && tabRoutesEnum.length"
+  >
+    <el-tab-pane
+      v-for="(i, index) in tabRoutesEnum"
+      :key="i.path"
+      :name="i.path"
+    >
+      <el-button
+        @click="selectTabRoutes(i.path)"
+        :class="[$route.path === i.path ? 'active-tab' : 'unactive-tab']"
+        slot="label"
+        size="mini"
+        type="primary"
       >
+        {{ $t("menuList." + i.title) }}
+        <i
+          class="el-icon-circle-close"
+          v-if="index > 0"
+          @click.stop="closeTabRoutes(i, index)"
+        />
+      </el-button>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -19,7 +36,7 @@ export default {
   data () {
     return {
       activeName: null,
-      tabRoutesEnum: []
+      tabRoutesEnum: [],
     }
   },
   computed: {},
@@ -30,7 +47,7 @@ export default {
       if (!tabRoutesEnum.filter((i) => i.path === '/dashboard').length) {
         tabRoutesEnum.unshift({
           path: '/dashboard',
-          title: '首页'
+          title: '首页',
         })
       }
       this.tabRoutesEnum = tabRoutesEnum
@@ -41,12 +58,12 @@ export default {
       const isThenLast = index === this.tabRoutesEnum.length - 1
       if (isActive && !isThenLast) {
         this.$router.push({
-          path: this.tabRoutesEnum[index + 1].path
+          path: this.tabRoutesEnum[index + 1].path,
         })
         this.removeTab(index)
       } else if (isActive && isThenLast) {
         this.$router.push({
-          path: this.tabRoutesEnum[index - 1].path
+          path: this.tabRoutesEnum[index - 1].path,
         })
         this.removeTab(index)
       } else {
@@ -55,15 +72,18 @@ export default {
     },
     removeTab (index) {
       this.tabRoutesEnum.splice(index, 1)
-      window.sessionStorage.setItem('tabRoutes', JSON.stringify(this.tabRoutesEnum))
+      window.sessionStorage.setItem(
+        'tabRoutes',
+        JSON.stringify(this.tabRoutesEnum)
+      )
     },
     selectTabRoutes (path) {
       if (path !== this.$route.path) {
         this.$router.push({
-          path
+          path,
         })
       }
-    }
+    },
   },
   created () {
     this.getTabRoutesEnum()
@@ -72,8 +92,8 @@ export default {
   watch: {
     '$route.path' () {
       this.getTabRoutesEnum()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -95,6 +115,7 @@ export default {
         border: 0;
         line-height: 30px !important;
         .el-button {
+          position: relative;
           &.active-tab {
             background-color: #42b983;
             border-color: #42b983;
@@ -107,19 +128,33 @@ export default {
             font-weight: normal;
           }
           i {
-            display: none;
+            width: 0px;
+            height: 0px;
+            font-size: 0px;
+            position: relative;
+            vertical-align: top;
+            top: 6px;
+            transform: scale(0, 0);
+            transition: all 0.2s linear;
           }
           &:hover {
             i {
-              display: inline-block;
+              top: 0px;
+              width: 12px;
+              height: 12px;
+              font-size: 12px;
+              top: 0px;
+
+              transform: scale(1, 1);
             }
           }
         }
       }
     }
-    .el-tabs__nav-next, .el-tabs__nav-prev {
+    .el-tabs__nav-next,
+    .el-tabs__nav-prev {
       height: 32px;
-      line-height: 32px!important;
+      line-height: 32px !important;
     }
   }
 }

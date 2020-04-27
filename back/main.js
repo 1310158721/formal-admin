@@ -65,7 +65,7 @@ db.on('disconnected', () => {
   console.log('MongoDB 断开连接!!!');
 });
 
-// require('./src/utils/upload/upload')
+require('./src/upload/upload')
 // 导入接口
 require('./src/mongodb/mongodb')
 

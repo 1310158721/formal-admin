@@ -47,7 +47,7 @@ app.all('*', (req, res, next) => {
 require('./upload')
 
 // 应用监听端口
-const PORT = 20000
+const PORT = 8000
 app.listen(PORT, () => {
   console.log(`server is running at http://127.0.0.1:${PORT}/`);
 });

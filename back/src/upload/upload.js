@@ -1,14 +1,15 @@
 const multer  = require('multer');
 const upload = multer({ dest: 'upload/files' });
-const Fs = require('../fs/fs');
+const Fs = require('../utils/fs');
 
 // 阿里云OSS对象操作
-const MYOSS = require('../oss/oss');
+const MYOSS = require('../utils/oss');
 const myOss = new MYOSS();
 
 class UPLOAD {
   constructor() {
-    this.app = global.app;
+    this.app = global.app
+    this.openApi()
   }
 
   upload () {
@@ -56,11 +57,9 @@ class UPLOAD {
     })
   }
 
-  OpenApi() {
+  openApi() {
     this.upload();
   }
 }
 
-const myUpload = new UPLOAD();
-myUpload.OpenApi();
-
+new UPLOAD();

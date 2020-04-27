@@ -1,3 +1,7 @@
+/**
+ * 递归删除文件夹里面的所有内容
+ */
+
 const fs = require('fs');
 
 class FS {

@@ -1,8 +1,6 @@
 <template>
-  <t-upload
-    :limit='3'
-    :fileList='fileList'
-    :on-success='handleSuccess'
+  <t-breadcrumb
+    :data='data'
   />
 </template>
 
@@ -13,25 +11,32 @@ export default {
   props: {},
   data () {
     return {
-      // fileList: [
-      //   {
-      //     name: 'xxx',
-      //     url: 'http://tang-tools.oss-cn-beijing.aliyuncs.com/undefined/3e91cb9a52d509f90f820cd16c93b139.png'
-      //   },
-      //   {
-      //     name: 'yyy',
-      //     url: 'http://tang-tools.oss-cn-beijing.aliyuncs.com/undefined/3e91cb9a52d509f90f820cd16c93b139.png'
-      //   }
-      // ]
-      fileList: []
+      data: [
+        {
+          label: '首页1',
+          to: '/dashboard1',
+          replace: false
+        },
+        {
+          label: '首页2',
+          to: '/dashboard2',
+          replace: false
+        },
+        {
+          label: '首页3',
+          to: '/dashboard3',
+          replace: false
+        },
+        {
+          label: '首页4',
+          to: '/dashboard4',
+          replace: false
+        }
+      ]
     }
   },
   computed: {},
-  methods: {
-    handleSuccess (res, file, fileList) {
-      this.fileList = fileList
-    }
-  },
+  methods: {},
   created () {},
   mounted () {},
   watch: {}

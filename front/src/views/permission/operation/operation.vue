@@ -25,7 +25,7 @@
         <el-form-item label="角色" prop="role">
           <t-select
             ref="routesSelect"
-            :optionEnum="optionEnum"
+            :data="optionEnum"
             @change="handleChange"
             v-model="model.role"
           />

@@ -101,6 +101,11 @@
           "title": "树形控件",
           "permission": "TREE",
           "children": null
+        },
+        {
+          "title": "文件上传",
+          "permission": "UPLOAD",
+          "children": null
         }
       ]
     },

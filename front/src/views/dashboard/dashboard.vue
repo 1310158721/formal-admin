@@ -27,7 +27,7 @@ export default {
   methods: {
     getData () {
       this.isLoading = true
-      this.$axios.get('/api/demo', {
+      this.$axios.get('/demo', {
         cancelToken: this.source.token
       })
         .then((res) => {

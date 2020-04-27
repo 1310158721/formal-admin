@@ -137,6 +137,17 @@ const baseRoutes = [
         },
         component: () => import(/* webpackChunkName: "tree" */ '@/views/components/tree/tree')
       },
+      // 组件 -> 文件上传
+      {
+        title: '文件上传',
+        icon: 'icon-ico',
+        path: '/upload',
+        name: 'upload',
+        meta: {
+          title: '文件上传'
+        },
+        component: () => import(/* webpackChunkName: "upload" */ '@/views/components/upload/upload')
+      },
       // 指令
       {
         title: '指令',

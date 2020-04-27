@@ -10,6 +10,8 @@ import TTable from './t-table'
 import TDialog from './t-dialog'
 import TTree from './t-tree'
 import TUpload from './t-upload'
+import TTab from './t-tab'
+import TBreadcrumb from './t-breadcrumb'
 
 Vue.component(TDrawer.name, TDrawer)
 Vue.component(TDropwodn.name, TDropwodn)
@@ -19,3 +21,5 @@ Vue.component(TTable.name, TTable)
 Vue.component(TDialog.name, TDialog)
 Vue.component(TTree.name, TTree)
 Vue.component(TUpload.name, TUpload)
+Vue.component(TTab.name, TTab)
+Vue.component(TBreadcrumb.name, TBreadcrumb)

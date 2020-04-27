@@ -1,7 +1,7 @@
 <template>
-  <el-select size="small" v-bind="$attrs" v-on="$listeners" :placeholder="placeholder">
+  <el-select :size='size' v-bind="$attrs" v-on="$listeners" :placeholder="placeholder">
     <el-option
-      v-for="item in $attrs.optionEnum"
+      v-for="item in data"
       :key="item.value"
       :label="item.label"
       :value="item.value"
@@ -14,20 +14,18 @@ export default {
   name: 't-select',
   components: {},
   props: {
+    data: {
+      type: Array,
+      default: () => []
+    },
     placeholder: {
       type: String,
       default: '请选择'
+    },
+    size: {
+      type: String,
+      default: 'small'
     }
-  },
-  data () {
-    return {}
-  },
-  computed: {},
-  methods: {},
-  created () {},
-  mounted () { },
-  watch: {}
+  }
 }
 </script>
-
-<style lang="scss" scoped></style>

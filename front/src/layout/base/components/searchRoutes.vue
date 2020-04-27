@@ -6,7 +6,7 @@
       filterable
       :style="{ width: width + 'px', opacity, transition: 'all 0.2s linear' }"
       v-if="routesEnum.length"
-      :optionEnum="routesEnum"
+      :data="routesEnum"
       @blur="selectBlur"
       @change="selectChange"
       :value="$route.path"
