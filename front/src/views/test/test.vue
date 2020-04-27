@@ -1,45 +1,50 @@
 <template>
-  <t-breadcrumb
-    :data='data'
-  />
+  <div>
+    <el-checkbox
+      :indeterminate="isIndeterminate"
+      v-model="checkAll"
+      @change="handleCheckAllChange"
+      >全选</el-checkbox
+    >
+    <t-checkbox v-model="checkedCities" :data="cities" />
+  </div>
 </template>
 
 <script>
+const cityOptions = [
+  { label: '上海' },
+  { label: '北京' },
+  { label: '广州' },
+  { label: '深圳' },
+]
 export default {
   name: 'componentName',
   components: {},
   props: {},
   data () {
     return {
-      data: [
-        {
-          label: '首页1',
-          to: '/dashboard1',
-          replace: false
-        },
-        {
-          label: '首页2',
-          to: '/dashboard2',
-          replace: false
-        },
-        {
-          label: '首页3',
-          to: '/dashboard3',
-          replace: false
-        },
-        {
-          label: '首页4',
-          to: '/dashboard4',
-          replace: false
-        }
-      ]
+      checkAll: false,
+      checkedCities: ['上海', '北京'],
+      cities: cityOptions,
+      isIndeterminate: true
     }
   },
   computed: {},
-  methods: {},
+  methods: {
+    handleCheckAllChange (val) {
+      this.checkedCities = val ? cityOptions.map((i) => i.label) : []
+      this.isIndeterminate = false
+    },
+    handleCheckedCitiesChange (value) {
+      let checkedCount = value.length
+      this.checkAll = checkedCount === this.cities.length
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.cities.length
+    },
+  },
   created () {},
   mounted () {},
-  watch: {}
+  watch: {},
 }
 </script>
 
