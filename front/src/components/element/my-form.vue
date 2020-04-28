@@ -1,8 +1,22 @@
 <template>
   <el-form>
-    <template v-for='i in data'>
-      <el-form-item :key='i.id'>
-        <el-input type='text' v-model='i.value' v-bind='i.attrs' v-on='i.listeners' />
+    <template v-for="i in formData">
+      <el-form-item :key="i.id" v-bind='i.formItem'>
+        <template v-if='i.value !== undefined'>
+          <span
+            :is="i.is"
+            v-model="i.value"
+            v-bind="i.attrs"
+            v-on="i.listeners"
+          />
+        </template>
+        <template v-else>
+          <span
+            :is="i.is"
+            v-bind="i.attrs"
+            v-on="i.listeners"
+          />
+        </template>
       </el-form-item>
     </template>
   </el-form>
@@ -13,10 +27,10 @@ export default {
   name: 'my-form',
   components: {},
   props: {
-    data: {
+    formData: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data () {
     return {}
@@ -24,8 +38,10 @@ export default {
   computed: {},
   methods: {},
   created () {},
-  mounted () {},
-  watch: {}
+  mounted () {
+    console.log(this.formData)
+  },
+  watch: {},
 }
 </script>
 

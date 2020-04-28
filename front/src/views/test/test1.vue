@@ -1,5 +1,5 @@
 <template>
-  <my-form :data='data'></my-form>
+  <my-form :formData='formData'></my-form>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
   props: {},
   data () {
     return {
-      data: [
+      formData: [
         {
           ele: 'el-input',
           value: null,

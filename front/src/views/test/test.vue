@@ -1,50 +1,121 @@
 <template>
-  <div>
-    <el-checkbox
-      :indeterminate="isIndeterminate"
-      v-model="checkAll"
-      @change="handleCheckAllChange"
-      >全选</el-checkbox
-    >
-    <t-checkbox v-model="checkedCities" :data="cities" />
-  </div>
+  <my-form
+    :formData='formData'
+  />
 </template>
 
 <script>
-const cityOptions = [
-  { label: '上海' },
-  { label: '北京' },
-  { label: '广州' },
-  { label: '深圳' },
-]
 export default {
   name: 'componentName',
   components: {},
   props: {},
   data () {
     return {
-      checkAll: false,
-      checkedCities: ['上海', '北京'],
-      cities: cityOptions,
-      isIndeterminate: true
+      formData: [
+        {
+          is: 't-input',
+          value: null,
+          rule: '',
+          formItem: {
+            label: 't-input',
+            class: 't-input'
+          },
+          attrs: {},
+          listeners: {
+            change: this.handleInputChange
+          }
+        },
+        {
+          is: 't-input-number',
+          formItem: {
+            label: 't-input-number',
+            class: 't-input-number'
+          },
+          value: null,
+          rule: '',
+          attrs: {},
+          listeners: {
+            change: this.handleInputNumberChange
+          }
+        },
+        {
+          is: 't-radio',
+          formItem: {
+            label: 't-radio',
+            class: 't-radio'
+          },
+          value: 'man',
+          rule: '',
+          attrs: {
+            data: [
+              { label: 'man', title: '男' },
+              { label: 'womon', title: '女' }
+            ]
+          },
+          listeners: {
+            change: this.handleInputNumberChange
+          }
+        },
+        {
+          is: 't-select',
+          formItem: {
+            label: 't-select',
+            class: 't-select'
+          },
+          value: null,
+          rule: '',
+          attrs: {
+            data: [
+              { value: '1', label: 'one' },
+              { value: '2', label: 'two' },
+              { value: '3', label: 'three' }
+            ]
+          },
+          listeners: {
+            change: this.handleInputChange
+          }
+        },
+        {
+          is: 't-rate',
+          formItem: {
+            label: 't-rate',
+            class: 't-rate'
+          },
+          value: null,
+          rule: '',
+          attrs: {},
+          listeners: {
+            change: this.handleInputChange
+          }
+        },
+        {
+          is: 't-upload',
+          formItem: {
+            label: 't-upload',
+            class: 't-upload'
+          },
+          value: null,
+          rule: '',
+          attrs: {},
+          listeners: {
+            change: this.handleInputChange
+          }
+        }
+      ]
     }
   },
   computed: {},
   methods: {
-    handleCheckAllChange (val) {
-      this.checkedCities = val ? cityOptions.map((i) => i.label) : []
-      this.isIndeterminate = false
+    handleInputChange () {
+      console.log(this.formData)
     },
-    handleCheckedCitiesChange (value) {
-      let checkedCount = value.length
-      this.checkAll = checkedCount === this.cities.length
-      this.isIndeterminate =
-        checkedCount > 0 && checkedCount < this.cities.length
-    },
+    handleInputNumberChange (val) {
+      console.log(val)
+    }
   },
   created () {},
   mounted () {},
-  watch: {},
+  watch: {}
 }
 </script>
 

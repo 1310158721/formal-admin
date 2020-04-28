@@ -1,6 +1,7 @@
 <!--
   对 form 表单做默认的配置，
   后期完善 VNode 来生成元素，暂时用 slot 来做
+  ref='form' 要放在v-bind、v-on的后面才能生效（外部组件才能获取到）
 -->
 <template>
   <el-form

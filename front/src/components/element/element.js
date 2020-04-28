@@ -16,6 +16,9 @@ import MyForm from './my-form.vue'
 import TInput from './t-input.vue'
 import TRadio from './t-radio.vue'
 import TCheckbox from './t-checkbox.vue'
+import TInputNumber from './t-input-number.vue'
+import TRate from './t-rate.vue'
+import TColorPicker from './t-color-picker.vue'
 
 Vue.component(TDrawer.name, TDrawer)
 Vue.component(TDropwodn.name, TDropwodn)
@@ -31,3 +34,6 @@ Vue.component(MyForm.name, MyForm)
 Vue.component(TInput.name, TInput)
 Vue.component(TRadio.name, TRadio)
 Vue.component(TCheckbox.name, TCheckbox)
+Vue.component(TInputNumber.name, TInputNumber)
+Vue.component(TRate.name, TRate)
+Vue.component(TColorPicker.name, TColorPicker)

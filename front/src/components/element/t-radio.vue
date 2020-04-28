@@ -21,7 +21,7 @@ export default {
     // 1 表示正常radio，2 表示按钮类型
     radioType: {
       type: Number,
-      default: 2
+      default: 1
     }
   },
   data () {
