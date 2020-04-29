@@ -19,6 +19,11 @@ import TCheckbox from './t-checkbox.vue'
 import TInputNumber from './t-input-number.vue'
 import TRate from './t-rate.vue'
 import TColorPicker from './t-color-picker.vue'
+import TSwitch from './t-switch.vue'
+import TSlider from './t-slider.vue'
+import TTimePicker from './t-time-picker.vue'
+import TDatePicker from './t-date-picker.vue'
+import TCascader from './t-cascader.vue'
 
 Vue.component(TDrawer.name, TDrawer)
 Vue.component(TDropwodn.name, TDropwodn)
@@ -37,3 +42,9 @@ Vue.component(TCheckbox.name, TCheckbox)
 Vue.component(TInputNumber.name, TInputNumber)
 Vue.component(TRate.name, TRate)
 Vue.component(TColorPicker.name, TColorPicker)
+Vue.component(TSwitch.name, TSwitch)
+Vue.component(TSlider.name, TSlider)
+Vue.component(TTimePicker.name, TTimePicker)
+Vue.component(TDatePicker.name, TDatePicker)
+Vue.component(TCascader.name, TCascader)
+
