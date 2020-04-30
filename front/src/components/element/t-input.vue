@@ -1,7 +1,7 @@
 <template>
   <el-input v-model.number="$attrs.value" v-bind='$attrs' v-on='$listeners'>
-    <template slot="prefix">
-      <slot name="prefix" />
+    <template slot="left-footer">
+      <slot name="left-footer" />
     </template>
     <template slot="suffix">
       <slot name="suffix" />

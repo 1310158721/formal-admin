@@ -4,8 +4,12 @@
     v-bind='$attrs'
     v-on='$listeners'
     :clearable='clearable'
-    :show-all-levels='showAllLevels'
-  />
+  >
+    <template slot-scope="{ node, data }">
+      <!-- slot 传参 -->
+      <slot v-bind='{ node, data }' />
+    </template>
+  </span>
 </template>
 
 <script>
@@ -20,11 +24,6 @@ export default {
     clearable: {
       type: Boolean,
       default: true
-    },
-    // 默认只显示最好一层文案
-    showAllLevels: {
-      type: Boolean,
-      default: false
     }
   },
   data () {

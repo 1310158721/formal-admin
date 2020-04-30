@@ -12,7 +12,6 @@ import TTree from './t-tree'
 import TUpload from './t-upload'
 import TTab from './t-tab'
 import TBreadcrumb from './t-breadcrumb'
-import MyForm from './my-form.vue'
 import TInput from './t-input.vue'
 import TRadio from './t-radio.vue'
 import TCheckbox from './t-checkbox.vue'
@@ -24,6 +23,7 @@ import TSlider from './t-slider.vue'
 import TTimePicker from './t-time-picker.vue'
 import TDatePicker from './t-date-picker.vue'
 import TCascader from './t-cascader.vue'
+import TTransfer from './t-transfer.vue'
 
 Vue.component(TDrawer.name, TDrawer)
 Vue.component(TDropwodn.name, TDropwodn)
@@ -35,7 +35,6 @@ Vue.component(TTree.name, TTree)
 Vue.component(TUpload.name, TUpload)
 Vue.component(TTab.name, TTab)
 Vue.component(TBreadcrumb.name, TBreadcrumb)
-Vue.component(MyForm.name, MyForm)
 Vue.component(TInput.name, TInput)
 Vue.component(TRadio.name, TRadio)
 Vue.component(TCheckbox.name, TCheckbox)
@@ -47,4 +46,5 @@ Vue.component(TSlider.name, TSlider)
 Vue.component(TTimePicker.name, TTimePicker)
 Vue.component(TDatePicker.name, TDatePicker)
 Vue.component(TCascader.name, TCascader)
+Vue.component(TTransfer.name, TTransfer)
 

@@ -11,9 +11,28 @@
     size='small'
     v-on='$listeners'
     v-bind='$attrs'
-    ref='form'
+    ref='t-form'
   >
-    <slot></slot>
+    <template v-for="i in data">
+      <el-form-item :key="i.id" v-bind='i.formItem'>
+        <template v-if='i.value !== undefined'>
+          <span
+            :is="i.is"
+            v-model="i.value"
+            v-bind="i.attrs"
+            v-on="i.listeners"
+          />
+        </template>
+        <template v-else>
+          <span
+            :is="i.is"
+            v-bind="i.attrs"
+            v-on="i.listeners"
+          />
+        </template>
+      </el-form-item>
+    </template>
+    <slot />
   </el-form>
 </template>
 
@@ -33,6 +52,10 @@ export default {
     labelPosition: {
       type: String,
       default: 'left'
+    },
+    data: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -40,11 +63,13 @@ export default {
   },
   computed: {},
   methods: {
-    getFormRefs () {
-      return this.$refs.form
+    getRefs () {
+      return this.$refs['t-form']
     }
   },
-  created () {},
+  created () {
+    console.log(this.data)
+  },
   mounted () {},
   watch: {}
 }
